@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissor</title>
+	 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+<body>
+<div class="container" id="mainPage">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="title" style="">
+				<h1>
+					ROCK PAPER SCISSORS
+				</h1>
+				<p style="font-size: 30px;">
+					Wanna Settle it out!!!
+				</p>
+				
+			</div>
+			<div class="row" >
+				<div class="col-md-12" >
+					<!-- <div class="row"> -->
+						<div class=" col-md-2" id="user-wins" style="border:solid;border-color:green;border-width: 2px;height:200px;font-size: 110px;color:white;text-align: center;">
+								
+						</div>
+						<div class=" col-md-3" style="border:solid;border-color:red;border-width: 2px;height:350px;">
+							<img src="images/question.png" id="show-user-choice" style="width: 100%;height: 100%">
+						</div>
+						<div class=" col-md-2" id="message" style="border:solid;border-color:green;border-width: 2px;height:200px;font-size: 70px; color: white;text-align: center;">
+						</div>
+						<div class=" col-md-3" style="border:solid;border-color:red;border-width: 2px;height:350px;">
+								<img src="images/question.png" id="show-computer-choice" style="width: 100%;height: 100%">
+						</div>
+						<div class=" col-md-2"  id="computer-wins" style="border:solid;border-color:green;border-width: 2px;height:200px;font-size: 110px;color:white;text-align: center;">
+
+						</div>
+					</div>
+				</div>
+					<div class="row">
+						<div class="btn-margin">
+						
+							<button type="button" class="btn btn-danger userPick" id="rock"	onclick="myfunction(this)">
+								Rock
+							</button>
+							<button type="button" class="btn btn-primary userPick paper" id = "paper" onclick="myfunction(this)">
+										Paper
+							</button>
+							<button type="button" class="btn btn-warning userPick scissor"  id="scissor" onclick="myfunction(this)">
+								Scissors
+							</button>
+						<!-- </div> -->
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+	<div id="game">
+	</div>
+
+	<!-- JAVASCRIPT -->
+	<script type="text/javascript">
+		var computerChoices=["rock","paper","scissor"];
+		var userScore= 0;
+		var computerScore=0;
+
+		function myfunction(btn){
+			//alert(btn.id);
+			var userGuess = btn.id;
+			var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
+			var winner= findWinner(userGuess,computerGuess);
+			setImages(userGuess,computerGuess);			
+
+			// Winner
+			score(winner);
+			document.getElementById("user-wins").innerHTML=userScore;
+ 			document.getElementById("computer-wins").innerHTML=computerScore;
+
+			// show score
+			if(winner=="user wins"){
+				document.getElementById("message").innerHTML="You Win";
+			}else if(winner=="computer wins"){
+				document.getElementById("message").innerHTML="You Lose";
+			}else if(winner=="It's a tie"){
+				document.getElementById("message").innerHTML="It's a Tie";
+			}
+
+			// show image
+			// if(userGuess=="rock"){
+			// 	document.getElementById("show-user-choice").= <img src=""
+			// }
+
+	    }
+
+
+		function setImages(userGuess, computerGuess){
+		    document.getElementById("show-user-choice").src = "images/" + userGuess + ".png";
+		    document.getElementById("show-computer-choice").src = "images/" + computerGuess + ".png";
+		}
+
+		// FUNCTIONS
+		function findWinner(userGuess, computerGuess){
+			var winner ="";
+		    // This is the logic that determines who wins the game.
+		    if (userGuess==computerGuess){
+				winner="It's a tie";
+		    	return winner;	
+		    }
+	    	if(userGuess=="rock") {
+	    		if(computerGuess=="paper"){
+	    			winner="computer wins";
+	    		}else{
+	    			winner="user wins";
+	    		}
+		    }else{
+	    		if(userGuess=="paper"){
+					if(computerGuess=="rock"){
+						winner="user wins";
+					}else{
+						winner = "computer wins";
+					}
+				}
+				else{
+					if(computerGuess=="rock"){
+						winner = "computer wins";
+					}
+					else{
+						winner = "user wins";
+					}
+				}
+	    	}
+	    	// alert(userGuess + '\n' +  computerGuess + '\n' + winner);
+	      	return winner;
+		}
+
+		// score function
+		
+		function score(winner){
+			if (winner=="user wins"){
+				userScore++
+			}
+			if(winner=="computer wins"){
+				computerScore++
+			}
+		}
+		
+	</script>
+</body>
+</html>
+

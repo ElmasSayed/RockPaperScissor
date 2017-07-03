@@ -1,0 +1,56 @@
+body{
+	font-size: 20px;
+	background-color: black;
+	font-family:vardana;
+}
+
+.title{
+	text-align: center; color: white;margin-top: 20px;
+}
+
+.players{
+	background-color: blue; height: 200px;border:solid;border-width:1px;border-color: darkgray;border-radius:15px;
+}
+.computerPick{
+	background-color:white;height: 50px;border:solid;border-width:1px;border-color: black;border-radius:15px;
+}
+.userPick{
+	padding-top: 10px;
+	margin-bottom: 20px;
+	height: 60px;
+	width: 33%;
+	font-size: 30px;
+}
+.userBox{
+	background-color: gray; height: 200px;border:solid;border-width:1px;border-color: black;border-radius:15px;
+}
+.userPickOne{
+background-color:white;height: 50px; border:solid;border-width:1px;border-color: black;border-radius:15px;margin-left: 2px; margin-right:2px;
+}
+.btn-margin{
+	padding-top: 30px;
+	margin-bottom: 100px;
+	height: 80px;
+	width: 100%;
+}
+.image{
+	border:solid;
+	border-color:red;
+	border-width: 2px;
+	height:400px; 
+	background-image:url(images/rock.png);
+	background-repeat:no-repeat;
+}
+*/
+
+
+			// show image
+			if(userGuess=="rock"){
+				document.getElementById("show-user-choice").src= "images/rock.png";
+			};	
+			if(userGuess=="paper"){
+				document.getElementById("show-user-choice").src= "images/paper.png";
+			};
+			if(userGuess=="scissor"){
+				document.getElementById("show-user-choice").src= "images/scissor.png";
+		    };
