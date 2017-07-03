@@ -41,16 +41,3 @@ background-color:white;height: 50px; border:solid;border-width:1px;border-color:
 	background-image:url(images/rock.png);
 	background-repeat:no-repeat;
 }
-*/
-
-
-			// show image
-			if(userGuess=="rock"){
-				document.getElementById("show-user-choice").src= "images/rock.png";
-			};	
-			if(userGuess=="paper"){
-				document.getElementById("show-user-choice").src= "images/paper.png";
-			};
-			if(userGuess=="scissor"){
-				document.getElementById("show-user-choice").src= "images/scissor.png";
-		    };
